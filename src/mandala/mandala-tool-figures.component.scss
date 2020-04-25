@@ -1,0 +1,40 @@
+:host{
+  display: block;
+}
+
+.display-none{
+  display: none;
+}
+
+.figure{
+  svg{
+    display: block;
+    height: 1.5em;
+    width: auto;
+  }
+}
+
+.selected{
+  box-shadow: 0 0 0.5em inset #aaa;
+  border-radius: 5px;
+}
+
+.variants{
+  position: absolute;
+  width: 7em;
+  background-color: #fff;
+  box-shadow: 0 0 0.1em #aaa;
+  transform: translate(-0.3em,0.3em);
+  svg{
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+    &:hover{
+      background-color: #f9f9f9;
+      box-shadow: 0 0 0.1em #aaa;
+    }
+    &*{
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="figure" (click)="onOpen()">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+        <path [class.display-none]="!currentTypeCurveBasis" [attr.d]="curveBasisFig" [attr.fill]="colorFillFig" stroke-width="2" [style.stroke]="colorStrokeFig"></path>
+        <path [class.display-none]="!currentTypeCurveCatmullRom" [attr.d]="curveCatmullRomFig" [attr.fill]="colorFillFig" stroke-width="2" [style.stroke]="colorStrokeFig"></path>
+        <circle [class.display-none]="!currentTypeCircle" cx="13" cy="13" r="11" [attr.fill]="colorFillFig" stroke-width="2" [style.stroke]="colorStrokeFig"></circle>
+    </svg>
+</div>
+<div class="variants" [class.display-none]="!visible" (click)="eventStop($event)">
+    <div>
+        <svg (click)="onType(FigureType.curveBasis)" [class.selected]="currentTypeCurveBasis" version="1.1" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+            <path [attr.d]="curveBasis" fill="none" stroke-width="2" [style.stroke]="colorStroke"></path>
+        </svg>
+        <svg (click)="onType(FigureType.curveCatmullRom)" [class.selected]="currentTypeCurveCatmullRom" version="1.1" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+            <path [attr.d]="curveCatmullRom"  fill="none" stroke-width="2" [style.stroke]="colorStroke"></path>
+        </svg>
+        <svg (click)="onType(FigureType.circle)" [class.selected]="currentTypeCircle" version="1.1" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+            <circle cx="13" cy="13" r="11" fill="none" stroke-width="2" [style.stroke]="colorStroke"></circle>
+        </svg>
+    </div>
+    <div>
+        <div>
+            <input id="inp-1" type="checkbox" [(ngModel)]="withStroke"><label for="inp-1">контур</label>
+        </div>
+        <div>
+            <input id="inp-2" type="checkbox" [(ngModel)]="withFill"><label for="inp-2">заливка</label>
+        </div>
+        <div>
+            <input id="inp-3" type="checkbox" [(ngModel)]="pathClosed"><label for="inp-3">замкнуть</label>
+        </div>
+    </div>
+</div>

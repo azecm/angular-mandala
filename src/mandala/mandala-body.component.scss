@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+svg {
+  border: 1px solid silver;
+
+  * {
+    pointer-events: none;
+  }
+}
+
+symbol {
+  overflow: visible;
+}

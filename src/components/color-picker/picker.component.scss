@@ -1,0 +1,123 @@
+:host {
+  display: block;
+  cursor: auto;
+  z-index: 1;
+
+}
+
+:host(.absolute) {
+  position: absolute;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 0.3em silver;
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+
+:host(.display-none) {
+  display: none;
+}
+
+.picker-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.picker-column{
+  margin: 0 0.5em;
+}
+
+.picker-value {
+  padding: 0.2em 0.4em;
+  width: 5em;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  border: 1px solid transparent;
+  &.error{
+    border-color: red;
+  }
+}
+
+.colors {
+  display: flex;
+  width: 4em;
+  height: 3em;
+  margin-bottom: 0.5em;
+
+  &-item {
+    width: 2em;
+    height: 3em;
+  }
+}
+
+.menu {
+  &-container {
+    margin-top: 0.3em;
+  }
+
+  &-palette {
+    &:before {
+      content: 'палитра'
+    }
+  }
+
+  &-scheme {
+    &:before {
+      content: 'схемы'
+    }
+  }
+
+  &-gradient {
+    &:before {
+      content: 'градиенты'
+    }
+  }
+
+  &-item {
+    cursor: pointer;
+    margin: 0.1em 0;
+    font-size: 0.9em;
+
+    &:not(.active) {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// ===
+
+.color-list {
+  margin: 0.3em 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 18.1em;
+  &:not(.display-none){
+    display: flex;
+  }
+  &.display-none{
+    display: none;
+  }
+}
+
+.color-cell {
+  margin: 0.2em;
+  height: 1em;
+  cursor: pointer;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.3em #777;
+
+  &:hover {
+    box-shadow: 0 0 0.2em #000;
+  }
+
+  &__scheme {
+    width: 1.1em;
+  }
+
+  &__palette {
+    width: 1.4em;
+  }
+}

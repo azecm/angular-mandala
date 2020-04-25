@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.drag {
+  position: absolute;
+  pointer-events: none;
+  cursor: pointer;
+
+  &.white:before {
+    border: 1px solid white;
+  }
+
+  &:not(.white):before {
+    border: 1px solid black;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    box-sizing: border-box;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

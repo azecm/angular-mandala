@@ -1,0 +1,37 @@
+<div class="picker-container">
+    <div class="picker-column">
+        <picker-rect #rect [colorHSV]="colorHSV" (colorHSVChange)="onColorChange($event)"></picker-rect>
+    </div>
+    <div class="picker-column">
+        <picker-strip #strip [colorHSV]="colorHSV" (colorHSVChange)="onColorChange($event)"></picker-strip>
+    </div>
+    <div class="picker-column">
+        <div class="colors">
+            <div #prev
+                    class="colors-item" (click)="setSourceColor()" [ngStyle]="{backgroundColor: _colorRGBSource}"></div>
+            <div #current
+                    class="colors-item" (click)="setCurrentColor()" [ngStyle]="{backgroundColor: _colorRGB}"></div>
+        </div>
+        <div>
+            <input class="picker-value" type="text"
+                   maxLength="7" [value]="_colorRGB" (input)="onColorRGBInput($event)" (keydown)="onColorRGBDown($event)">
+        </div>
+        <div class="menu-container">
+            <div class="menu-item menu-palette"
+                 title="палитра" (click)="onPalette()" [ngClass]="{active:isPalette}"></div>
+            <div class="menu-item menu-scheme"
+                 title="схемы" (click)="onScheme()" [ngClass]="{active:isScheme}"></div>
+        </div>
+    </div>
+</div>
+<div class="color-list" [class.display-none]="!isPalette">
+    <div *ngFor="let c of palette;" [style.background-color]="c"
+            class="color-cell color-cell__palette" (click)="onColor(c)"></div>
+</div>
+<div class="color-list" [class.display-none]="!isScheme">
+    <div *ngFor="let i of schemeNumbers; trackBy: schemeTrack"
+            class="color-cell color-cell__scheme"
+            [style.background-color]="schemeColors[i]"
+            [title]="schemeColors[i]"
+            (click)="onColor(schemeColors[i])"></div>
+</div>
